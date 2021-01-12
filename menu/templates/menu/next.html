@@ -1,0 +1,33 @@
+{% extends 'menu/layout.html' %}
+
+<div>
+    {% block title %}
+        <div class="home-content wrapper">
+            <h2 class="page-title">献立の提案</h2>
+        </div>
+    {% endblock %}
+</div>
+
+<div class="content">
+    {% block content %}
+        <div>
+            <h3 class="next-h3">こちらの主菜に合う副菜と汁物をAIが提案します</h3>
+        </div>
+        <div class="wrapper grid next">
+            <div></div>
+            <div class="item next-item">
+                <img class="main_img next-img" src="{{ main_image }}" alt="主菜">
+                <h4>{{ main_name }}</h4>
+                <p>{{ main_description }}</p>
+            </div>
+        </div>
+        <form class="home-content" action="{% url 'predict' %}" method='post'>
+            {% csrf_token %}
+            <input type='hidden' name='main_num' value='{{main_num}}'>
+            <button type="submit" class="ai-button">AI判定をする</button>
+        </form>
+    {% endblock %}
+</div>
+
+
+

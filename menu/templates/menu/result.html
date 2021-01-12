@@ -1,0 +1,44 @@
+{% extends 'menu/layout.html' %}
+
+<div>
+    {% block title %}
+        <div class="home-content wrapper">
+            <h2 class="page-title">AI判定の結果</h2>
+        </div>
+    {% endblock %}
+</div>
+
+<div class="content">
+    {% block content %}
+        <div class="wrapper grid result-grid">
+            <div class="item next-item">
+                <img class="main_img result-main-img" src="{{ main_image }}" alt="主菜">
+                <h4><a class="predict-h4" href="{{ main_url }}">{{ main_name }}</a></h4>
+                <p>{{ main_description }}</p>
+            </div>
+            <div class="item next-item">
+                <img class="main_img result-img" src="{{ sub_image }}" alt="副菜">
+                <h4><a class="predict-h4" href="{{ sub_url }}">{{ sub_name }}</a></h4>
+                <p>{{ sub_description }}</p>
+            </div>
+            <div class="item next-item">
+                <img class="main_img result-img" src="{{ soup_image }}" alt="汁物">
+                <h4><a class="predict-h4" href="{{ soup_url }}">{{ soup_name }}</a></h4>
+                <p>{{ soup_description }}</p>
+            </div>
+        </div>
+        
+        <form class="home-content" action="{% url 'next_predict' %}" method='post'>
+            {% csrf_token %}
+            <input type='hidden' name='main_num' value='{{main_num}}'>
+            <button type="submit" class="ai-button top">他の組み合わせを提案</button>
+        </form>
+        <form class="home-content" action="{% url 'start' %}">
+            {% csrf_token %}
+            <button type="submit" class="ai-button">主菜の変更</button>
+        </form>
+    {% endblock %}
+</div>
+
+
+

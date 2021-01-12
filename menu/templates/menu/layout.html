@@ -1,0 +1,65 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>Menu Make</title>
+        <link rel="icon" type="image/png" href="{% static 'menu/images/cooking02_itameru.png' %}">
+        <link rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css"
+            href="{% static 'menu/css/style.css' %}">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+
+    <body>
+        <div id="home" class="big-bg wrapper-2">
+            <header class="page-header wrapper">
+                <div class="main-title">
+                    <a href="{% url 'index' %}"><img class="logo" src="{% static 'menu/images/rakuten-recipe-logo.png' %}" alt="今日のごはん"></a>
+                    <a href="{% url 'index' %}"><h3 class="header-title">献立提案AI</h3></a>
+                </div>
+                <nav>
+                    <ul class="main-nav">
+                        <li><a class="header-navi" href="{% url 'index' %}">トップ</a></li>
+                        <li><a class="header-navi" href="{% url 'start' %}">主菜を選ぶ</a></li>
+                        <li><a class="header-navi">ログアウト</a></li>
+                        <!--
+                    {% if user.id  %}
+                        <li>{{ user.username }}<a class="header-navi" href="{% url 'index' %}">ログアウト</a></li>
+                    {% else %}
+                        <li><a class="header-navi" href="{% url 'index' %}">ログイン</a></li>
+                        <li><a class="header-navi" href="{% url 'index' %}">アカウント作成</a></li>
+                    {% endif %}
+                        -->
+                    </ul>
+                </nav>
+            </header>
+
+            <div>
+                {% block title %}
+                {% endblock %}
+            </div>
+
+            <div class="content">
+                {% block content %}
+                {% endblock %}
+            </div>
+
+            <footer>
+                <div>
+                    <p><small>&copy; 2021 ryoichi kusaka</small></p>
+                </div>
+            </footer>
+        </div>
+<!--
+        <footer>
+            <div class="wrapper">
+                <p><small>&copy; 2021 ryoichi kusaka</small></p>
+            </div>
+        </footer>
+    -->
+    </body>
+</html>

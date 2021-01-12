@@ -1,0 +1,107 @@
+{% extends 'menu/layout.html' %}
+
+<div>
+    {% block title %}
+        <div class="home-content wrapper">
+            <h2 class="page-title">今日のごはん</h2>
+            <h3 class="next-h3">最初に主菜を選んでください</h3>
+        </div>
+    {% endblock %}
+</div>
+
+<div class="content">
+    {% block content %}
+        <div class="wrapper grid">
+            <div class="item">
+                <form action='{% url 'next' %}' method='post'>
+                    {% csrf_token %}
+                    <input type='hidden' name='main_num_1' value='{{main_num_1}}'>
+                    <button class="image-button" type="submit"><img class="main_img" src="{{ main_image_1 }}" alt="主菜"></button>
+                </form>
+                <h4 class="button-title">{{ main_name_1 }}</h4>
+                <p class="description">{{ main_description_1 }}</p>
+            </div>
+            <div class="item">
+                <form action='{% url 'next' %}' method='post'>
+                    {% csrf_token %}
+                    <input type='hidden' name='main_num_2' value='{{main_num_2}}'>
+                    <button class="image-button" type="submit"><img class="main_img" src="{{ main_image_2 }}" alt="主菜"></button>
+                </form>
+                <h4 class="button-title">{{ main_name_2 }}</h4>
+                <p class="description">{{ main_description_2 }}</p>
+            </div>
+            <div class="item item-top">
+                <form action='{% url 'next' %}' method='post'>
+                    {% csrf_token %}
+                    <input type='hidden' name='main_num_3' value='{{main_num_3}}'>
+                    <button class="image-button" type="submit"><img class="main_img" src="{{ main_image_3 }}" alt="主菜"></button>
+                </form>
+                <h4 class="button-title">{{ main_name_3 }}</h4>
+                <p>{{ main_description_3 }}</p>
+            </div>
+            <div class="item item-top">
+                <form action='{% url 'next' %}' method='post'>
+                    {% csrf_token %}
+                    <input type='hidden' name='main_num_4' value='{{main_num_4}}'>
+                    <button class="image-button" type="submit"><img class="main_img" src="{{ main_image_4 }}" alt="主菜"></button>
+                </form>
+                <h4 class="button-title">{{ main_name_4 }}</h4>
+                <p>{{ main_description_4 }}</p>
+            </div>
+            <div class="item item-top">
+                <form action='{% url 'next' %}' method='post'>
+                    {% csrf_token %}
+                    <input type='hidden' name='main_num_5' value='{{main_num_5}}'>
+                    <button class="image-button" type="submit"><img class="main_img" src="{{ main_image_5 }}" alt="主菜"></button>
+                </form>
+                <h4 class="button-title">{{ main_name_5 }}</h4>
+                <p>{{ main_description_5 }}</p>
+            </div>
+            <div class="item item-top">
+                <form action='{% url 'next' %}' method='post'>
+                    {% csrf_token %}
+                    <input type='hidden' name='main_num_6' value='{{main_num_6}}'>
+                    <button class="image-button" type="submit"><img class="main_img" src="{{ main_image_6 }}" alt="主菜"></button>
+                </form>
+                <h4 class="button-title">{{ main_name_6 }}</h4>
+                <p>{{ main_description_6 }}</p>
+            </div>
+            <div class="item item-top">
+                <form action='{% url 'next' %}' method='post'>
+                    {% csrf_token %}
+                    <input type='hidden' name='main_num_7' value='{{main_num_7}}'>
+                    <button class="image-button" type="submit"><img class="main_img" src="{{ main_image_7 }}" alt="主菜"></button>
+                </form>
+                <h4 class="button-title">{{ main_name_7 }}</h4>
+                <p>{{ main_description_7 }}</p>
+            </div>
+            <div class="item item-top">
+                <form action='{% url 'next' %}' method='post'>
+                    {% csrf_token %}
+                    <input type='hidden' name='main_num_8' value='{{main_num_8}}'>
+                    <button class="image-button" type="submit"><img class="main_img" src="{{ main_image_8 }}" alt="主菜"></button>
+                </form>
+                <h4 class="button-title">{{ main_name_8 }}</h4>
+                <p>{{ main_description_8 }}</p>
+            </div>
+            <div class="item item-top">
+                <form action='{% url 'next' %}' method='post'>
+                    {% csrf_token %}
+                    <input type='hidden' name='main_num_9' value='{{main_num_9}}'>
+                    <button class="image-button" type="submit"><img class="main_img" src="{{ main_image_9 }}" alt="主菜"></button>
+                </form>
+                <h4 class="button-title">{{ main_name_9 }}</h4>
+                <p>{{ main_description_9 }}</p>
+            </div>
+        </div>
+
+
+        <form class="home-content" action="{% url 'start' %}" method='get'>
+            {% csrf_token %}
+            <button type="submit" class="button">他の主菜を選ぶ</button>
+        </form>
+    {% endblock %}
+</div>
+
+
+
