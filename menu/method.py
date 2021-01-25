@@ -198,12 +198,12 @@ def menu_predict(main_num):
     #モデルを使って予想
     pred = model.predict_proba(train)
     pred_sort_index = np.argsort(pred[:, 0])
-    print(np.abs(np.sort(-pred[:, 1]))[:10])
+    #print(np.abs(np.sort(-pred[:, 1]))[:10])
 
     #上位50件の副菜、汁物の名前リスト
     sub_name_list = []
     soup_name_list = []
-    for i in range(80):
+    for i in range(50):
         sub_name = train_origin.iloc[pred_sort_index[i]]['副菜']
         sub_name_list.append(sub_name)
         #副菜重複削除
@@ -213,8 +213,8 @@ def menu_predict(main_num):
         #汁物重複削除
         if soup_name_list[0] != 'なし':
             soup_name_list = sorted(set(soup_name_list), key=soup_name_list.index)
-    print('len(sub_name_list):', len(sub_name_list))
-    print('len(soup_name_list):', len(soup_name_list))
+    #print('len(sub_name_list):', len(sub_name_list))
+    #print('len(soup_name_list):', len(soup_name_list))
 
     params = {
         'main_num': main_num,
@@ -236,6 +236,7 @@ def recipe_info(main_num, sub_name_list, soup_name_list, count):
     sub = pd.read_csv('rakuten_sub.csv', index_col=0)
     soup = pd.read_csv('rakuten_soup.csv', index_col=0)
 
+    #エラーポイント
     sub = sub[sub['recipeTitle'] == sub_name_list[count]]
     sub_name = sub_name_list[count]
     sub_image = sub.iloc[0]['foodImageUrl']
@@ -244,6 +245,7 @@ def recipe_info(main_num, sub_name_list, soup_name_list, count):
 
     soup = soup[soup['recipeTitle'] == soup_name_list[count]]
     soup_name = soup_name_list[count]
+    print(soup_name)
     soup_image = soup.iloc[0]['foodImageUrl']
     soup_description = soup.iloc[0]['recipeDescription']
     soup_url = soup.iloc[0]['recipeUrl']

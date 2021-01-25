@@ -46,8 +46,14 @@ def next_predict(request):
 
     #上位30件の繰り返し
     count += 1
+    '''
     if count == 30:
         count = 0
+    '''
+    if count >= len(sub_name_list) or count >= len(soup_name_list):
+        count = 0
+    print(len(sub_name_list))
+    print(len(soup_name_list))
     print('count', count)
     params = method.recipe_info(request.POST['main_num'], sub_name_list, soup_name_list, count)
         
