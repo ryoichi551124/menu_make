@@ -44,12 +44,7 @@ def predict(request):
 def next_predict(request):
     global pred_sort_index, sub_name_list, soup_name_list, count
 
-    #上位30件の繰り返し
     count += 1
-    '''
-    if count == 30:
-        count = 0
-    '''
     if count >= len(sub_name_list) or count >= len(soup_name_list):
         count = 0
     print(len(sub_name_list))
@@ -61,3 +56,11 @@ def next_predict(request):
         return render(request, 'menu/result.html', params)
     elif params['soup_name'] == 'なし':
         return render(request, 'menu/result_nosoup.html', params)
+
+
+
+
+def loading(request):
+    main_num = list(request.POST.values())[1]
+    params = method.next_choice(main_num)
+    return render(request, 'menu/loading.html', params)

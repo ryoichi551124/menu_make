@@ -120,7 +120,7 @@ def menu_predict(main_num):
         writer = csv.writer(f, lineterminator='\n')
 
         #副菜と汁物のランダムな組み合わせを取得
-        for i in range(3000):
+        for i in range(1000):
             #ランダムな組み合わせのデータ1列を作る
             with open('combi.csv') as ff:
                 reader = csv.DictReader(ff)

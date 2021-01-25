@@ -21,10 +21,10 @@
                 <p>{{ main_description }}</p>
             </div>
         </div>
-        <form class="home-content" action="{% url 'predict' %}" method='post'>
+        <form class="home-content" action="{% url 'loading' %}" method='post'>
             {% csrf_token %}
             <input type='hidden' name='main_num' value='{{main_num}}'>
-            <button type="submit" class="ai-button">AI判定をする</button>
+            <button type="submit" class="ai-button">献立を提案する</button>
         </form>
     {% endblock %}
 </div>

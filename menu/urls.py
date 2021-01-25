@@ -7,4 +7,5 @@ urlpatterns = [
     path('next', views.next, name='next'),
     path('predict', views.predict, name='predict'),
     path('next_predict', views.next_predict, name='next_predict'),
+    path('loading', views.loading, name='loading'),
 ]

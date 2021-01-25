@@ -1,0 +1,36 @@
+{% extends 'menu/layout.html' %}
+{% load static %}
+
+<div>
+    {% block title %}
+        <div class="home-content wrapper">
+            <h2 class="page-title">献立の提案中</h2>
+        </div>
+    {% endblock %}
+</div>
+
+<div class="content">
+    {% block content %}
+        <div>
+            <h3 class="next-h3">少々お待ちください...</h3>
+        </div>
+        <form class="home-content" action="{% url 'predict' %}" method='post'>
+            {% csrf_token %}
+            <input type='hidden' name='main_num' value='{{main_num}}'>
+            <button type="submit" id="start" style="display:none"></button>
+            <img class="loading" src="{% static 'menu/images/loading.gif' %}" alt="loading">
+        </form>
+
+        <script>
+            const start = document.getElementById('start');
+        
+            // HTMLElement.click()を使う場合
+            function startTest () {
+                start.click();
+                console.log('Start!');
+            }
+            startTest();
+        
+          </script>
+    {% endblock %}
+</div>

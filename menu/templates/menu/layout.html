@@ -11,6 +11,7 @@
             crossorigin="anonymous">
         <link rel="stylesheet" type="text/css"
             href="{% static 'menu/css/style.css' %}">
+        <script src="{% static 'menu/js/javascript.js' %}"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
 
@@ -26,14 +27,6 @@
                         <li><a class="header-navi" href="{% url 'index' %}">トップ</a></li>
                         <li><a class="header-navi" href="{% url 'start' %}">主菜を選ぶ</a></li>
                         <li><a class="header-navi">ログアウト</a></li>
-                        <!--
-                    {% if user.id  %}
-                        <li>{{ user.username }}<a class="header-navi" href="{% url 'index' %}">ログアウト</a></li>
-                    {% else %}
-                        <li><a class="header-navi" href="{% url 'index' %}">ログイン</a></li>
-                        <li><a class="header-navi" href="{% url 'index' %}">アカウント作成</a></li>
-                    {% endif %}
-                        -->
                     </ul>
                 </nav>
             </header>
@@ -54,12 +47,5 @@
                 </div>
             </footer>
         </div>
-<!--
-        <footer>
-            <div class="wrapper">
-                <p><small>&copy; 2021 ryoichi kusaka</small></p>
-            </div>
-        </footer>
-    -->
     </body>
 </html>

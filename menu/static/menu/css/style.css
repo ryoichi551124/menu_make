@@ -194,7 +194,6 @@ h4 {
     text-align: center;
 }
 
-
 /*-----フッター-----*/
 footer {
     width: 100%;
@@ -209,6 +208,13 @@ footer {
 footer p {
     color: #fff;
     font-size: 1.8rem;
+}
+/*-----loading-----*/
+.loading {
+    width: 7%;
+    height: 7%;
+    background-size: cover;
+    margin-top: 30px;
 }
 
 

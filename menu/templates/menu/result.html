@@ -1,12 +1,18 @@
 {% extends 'menu/layout.html' %}
+{% load static %}
 
 <div>
     {% block title %}
         <div class="home-content wrapper">
-            <h2 class="page-title">AI判定の結果</h2>
+            <h2 class="page-title">献立AIの提案</h2>
         </div>
     {% endblock %}
 </div>
+
+<div id="showloading">
+    <img src="{% static 'menu/images/loading.gif' alt="loading">
+</div>
+
 
 <div class="content">
     {% block content %}
@@ -39,6 +45,5 @@
         </form>
     {% endblock %}
 </div>
-
 
 
